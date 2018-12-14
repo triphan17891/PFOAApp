@@ -3,6 +3,5 @@
     <module2copyright>
       <element module="All" copyright="Tri Phan" />
     </module2copyright>
-    <LanguageOptions name="JAVA" />
   </settings>
 </component>

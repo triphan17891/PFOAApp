@@ -2,4 +2,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="font_size_title">22dp</dimen>
+    <dimen name="font_size_heading1">18dp</dimen>
+    <dimen name="font_size_heading2">16dp</dimen>
+    <dimen name="font_size_heading3">14sp</dimen>
+    <dimen name="font_size_heading4">13sp</dimen>
+    <dimen name="font_size_normal">13sp</dimen>
+
 </resources>

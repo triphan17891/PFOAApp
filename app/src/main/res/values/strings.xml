@@ -1,3 +1,71 @@
 <resources>
     <string name="app_name">CRCApp</string>
+
+    <string name="intro_first_page">Calibration</string>
+    <string name="intro_second_page">Record Sample</string>
+    <string name="intro_third_page">Review Results</string>
+    <string name="intro_forth_page">Help</string>
+    <string name="intro_fifth_page">Contact Us</string>
+
+    <string name="record_instruct">Place the sample in the measuring kit and press the "Record" button.</string>
+
+    <string name="calib_first_sec">CURRENT CALIBRATION</string>
+    <string name="calib_second_sec">PERFORM CALIBRATION</string>
+    <string name="calib_zero_point_title">Zero-Point / Move sample region</string>
+    <string name="calib_one_point_title">One-Point</string>
+    <string name="calib_two_point_title">Two-Point</string>
+    <string name="calib_three_point_title">Three-Point</string>
+    <string name="calib_advance_title">Advanced Settings</string>
+
+    <string name="calib_empty_calibration">No calibration has been performed.</string>
+    <string name="calib_prefix_a1">A1:\u0020</string>
+    <string name="calib_prefix_a2">A2:\u0020</string>
+    <string name="calib_prefix_a3">A3:\u0020</string>
+    <string name="calib_prefix_a4">A4:\u0020</string>
+
+    <string name="calib_zero_point_desc">Configures sample region bounds. Also sets defaults for the calibration curve if no calibration has been performed.</string>
+    <string name="calib_zero_point_instruct">Place a sample in the measuring kit and align the sample region (red box) with the sample layer, then press "Finish".</string>
+
+    <string name="calib_one_point_desc">Performs a one-point calibration. Requires a 0ppb reference sample.</string>
+    <string name="calib_one_point_instruct_1">Step 1: Place a sample in the measuring kit and align the sample region (red box) with the sample layer, then press "Next".</string>
+    <string name="calib_one_point_instruct_2">Step 2: Place a 0 ppb sample in the measuring kit and press "Record".</string>
+
+    <string name="calib_two_point_desc">Performs a two-point calibration. Requires a 50ppb and 500ppb reference samples.</string>
+    <string name="calib_two_point_instruct_1">Step 1: Place a sample in the measuring kit and align the sample region (red box) with the sample layer, then press "Next".</string>
+    <string name="calib_two_point_instruct_2">Step 2: Place a 50 ppb sample in the measuring kit and press "Record".</string>
+    <string name="calib_two_point_instruct_3">Step 3: Place a 500 ppb sample in the measuring kit and press "Record".</string>
+
+    <string name="calib_three_point_desc">Performs a three-point calibration. Requires a 0ppb, 50ppb and 500ppb reference samples.</string>
+    <string name="calib_three_point_instruct_1">Step 1: Place a sample in the measuring kit and align the sample region (red box) with the sample layer, then press "Next".</string>
+    <string name="calib_three_point_instruct_2">Step 2: Place a 0 ppb sample in the measuring kit and press "Record".</string>
+    <string name="calib_three_point_instruct_3">Step 2: Place a 50 ppb sample in the measuring kit and press "Record".</string>
+    <string name="calib_three_point_instruct_4">Step 4: Place a 500 ppb sample in the measuring kit and press "Record".</string>
+
+    <string name="calib_setting_title">Calibration settings</string>
+    <string name="calib_advance_desc">Allows you to configure the default calibration</string>
+    <string name="calib_setting_desc">The fields below allow you to override the \'defaults\' used for the calibration curve when a zero, one, or two-point calibration is performed.\n\nUnder normal circumstances they should not need to be overridden, and doing so may lead to calibration issues and/or incorrect sample values.</string>
+    <string name="calib_setting_a1_hint">not overridden (258.7)</string>
+    <string name="calib_setting_a2_hint">not overridden (0.7171)</string>
+    <string name="calib_setting_a3_hint">not overridden (0.3532)</string>
+    <string name="calib_setting_a4_hint">not overridden (0.8868)</string>
+    <string name="calib_setting_apply_overrides">Apply Overrides</string>
+    <string name="calib_setting_clear_overrides">Clear Overrides</string>
+
+    <string name="main_record_new_sample">RECORD NEW SAMPLE</string>
+    <string name="main_calibration">CALIBRATION</string>
+    <string name="main_review_prev_sample">REVIEW PREVIOUS SAMPLES</string>
+    <string name="main_help">HELP</string>
+    <string name="main_contact_us">CONTACT US</string>
+
+    <string name="help_introduction">Introduction</string>
+    <string name="help_sample_pre">Sample Preparation</string>
+    <string name="help_further_info">For additional information, review the User Guide and Q&#38;A provided with the testing kit (also available on the astkCARE website).</string>
+
+    <string name="caution_granting_permission">Sorry, you can\'t use this app without granting permission.</string>
+    <string name="info_success_saving">Saved: %1$s</string>
+    <string name="info_config_changed">Configuration changed.</string>
+
+    <string name="txt_record">Record</string>
+    <string name="txt_next">Next</string>
+    <string name="txt_finish">Finish</string>
 </resources>

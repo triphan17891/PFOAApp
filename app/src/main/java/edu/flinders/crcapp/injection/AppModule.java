@@ -3,7 +3,7 @@ package edu.flinders.crcapp.injection;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import edu.flinders.crcapp.CRC;
+import edu.flinders.crcapp.CRCApplication;
 
 import dagger.Module;
 import dagger.Provides;
@@ -11,9 +11,9 @@ import dagger.Provides;
 @Module
 public final class AppModule {
     @NonNull
-    private final CRC mApp;
+    private final CRCApplication mApp;
 
-    public AppModule(@NonNull CRC app) {
+    public AppModule(@NonNull CRCApplication app) {
         mApp = app;
     }
 
@@ -23,7 +23,7 @@ public final class AppModule {
     }
 
     @Provides
-    public CRC provideApp() {
+    public CRCApplication provideApp() {
         return mApp;
     }
 }

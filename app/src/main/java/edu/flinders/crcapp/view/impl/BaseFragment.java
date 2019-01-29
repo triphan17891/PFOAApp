@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 
-import edu.flinders.crcapp.CRC;
+import edu.flinders.crcapp.CRCApplication;
 import edu.flinders.crcapp.presenter.loader.PresenterFactory;
 import edu.flinders.crcapp.presenter.loader.PresenterLoader;
 import edu.flinders.crcapp.injection.AppComponent;
@@ -48,7 +48,7 @@ public abstract class BaseFragment<P extends BasePresenter<V>, V> extends Fragme
     }
 
     private void injectDependencies() {
-        setupComponent(((CRC) getActivity().getApplication()).getAppComponent());
+        setupComponent(((CRCApplication) getActivity().getApplication()).getAppComponent());
     }
 
     @Override

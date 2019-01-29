@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by Tri Phan on 29/01/19 6:26 PM
+  ~  Copyright (c) 2019 . All rights reserved.
+  ~  Last modified 29/01/19 6:26 PM
+  -->
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context=".view.impl.AdvanceSettingActivity">
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text="@string/calib_setting_desc"
+              android:textSize="@dimen/font_size_normal"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="20dp">
+        <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                  android:text="@string/calib_prefix_a1"
+                  android:textStyle="bold"
+                  android:textSize="@dimen/font_size_heading3"/>
+
+        <EditText android:layout_width="match_parent" android:layout_height="35dp"
+                  android:numeric="decimal"
+                  android:textSize="@dimen/font_size_heading3"
+                  android:hint="@string/calib_setting_a1_hint"
+                  android:id="@+id/edt_a1_override"
+                  android:singleLine="true"
+                  android:imeOptions="actionNext"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="10dp">
+        <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                  android:text="@string/calib_prefix_a2"
+                  android:textStyle="bold"
+                  android:textSize="@dimen/font_size_heading3"/>
+
+        <EditText android:layout_width="match_parent" android:layout_height="35dp"
+                  android:numeric="decimal"
+                  android:textSize="@dimen/font_size_heading3"
+                  android:hint="@string/calib_setting_a2_hint"
+                  android:id="@+id/edt_a2_override"
+                  android:singleLine="true"
+                  android:imeOptions="actionNext"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="10dp">
+        <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                  android:text="@string/calib_prefix_a3"
+                  android:textStyle="bold"
+                  android:textSize="@dimen/font_size_heading3"/>
+
+        <EditText android:layout_width="match_parent" android:layout_height="35dp"
+                  android:numeric="decimal"
+                  android:textSize="@dimen/font_size_heading3"
+                  android:hint="@string/calib_setting_a3_hint"
+                  android:id="@+id/edt_a3_override"
+                  android:singleLine="true"
+                  android:imeOptions="actionNext"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="10dp">
+        <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                  android:text="@string/calib_prefix_a4"
+                  android:textStyle="bold"
+                  android:textSize="@dimen/font_size_heading3"/>
+
+        <EditText android:layout_width="match_parent" android:layout_height="35dp"
+                  android:numeric="decimal"
+                  android:textSize="@dimen/font_size_heading3"
+                  android:hint="@string/calib_setting_a4_hint"
+                  android:id="@+id/edt_a4_override"
+                  android:singleLine="true"
+                  android:imeOptions="actionDone"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="10dp"
+                  android:gravity="center">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/calib_setting_apply_overrides"
+                android:enabled="false"
+                android:id="@+id/btn_apply_overrides"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/calib_setting_clear_overrides"
+                android:enabled="false"
+                android:id="@+id/btn_clear_overrides"/>
+    </LinearLayout>
+
+</LinearLayout>

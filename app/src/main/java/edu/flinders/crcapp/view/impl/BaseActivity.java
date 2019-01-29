@@ -7,7 +7,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 
-import edu.flinders.crcapp.CRC;
+import edu.flinders.crcapp.CRCApplication;
 import edu.flinders.crcapp.presenter.loader.PresenterFactory;
 import edu.flinders.crcapp.presenter.loader.PresenterLoader;
 import edu.flinders.crcapp.injection.AppComponent;
@@ -43,7 +43,7 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V> extends AppCom
     }
 
     private void injectDependencies() {
-        setupComponent(((CRC) getApplication()).getAppComponent());
+        setupComponent(((CRCApplication) getApplication()).getAppComponent());
     }
 
     @Override
@@ -115,4 +115,6 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V> extends AppCom
      * @param appComponent the app component
      */
     protected abstract void setupComponent(@NonNull AppComponent appComponent);
+
+    protected abstract void registerListeners();
 }

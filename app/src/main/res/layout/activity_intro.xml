@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by Tri Phan on 7/01/19 8:42 AM
+  ~  Copyright (c) 2019 . All rights reserved.
+  ~  Last modified 7/01/19 8:42 AM
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".view.impl.IntroActivity">
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/vp_intro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+</RelativeLayout>

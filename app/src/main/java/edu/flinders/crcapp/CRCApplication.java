@@ -7,7 +7,7 @@ import edu.flinders.crcapp.injection.AppComponent;
 import edu.flinders.crcapp.injection.AppModule;
 import edu.flinders.crcapp.injection.DaggerAppComponent;
 
-public final class CRC extends Application {
+public final class CRCApplication extends Application {
     private AppComponent mAppComponent;
 
     @Override

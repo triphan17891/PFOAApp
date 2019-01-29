@@ -2,7 +2,7 @@ package edu.flinders.crcapp.injection;
 
 import android.content.Context;
 
-import edu.flinders.crcapp.CRC;
+import edu.flinders.crcapp.CRCApplication;
 
 import javax.inject.Singleton;
 
@@ -13,5 +13,5 @@ import dagger.Component;
 public interface AppComponent {
     Context getAppContext();
 
-    CRC getApp();
+    CRCApplication getApp();
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by Tri Phan on 14/12/18 12:14 PM
-  ~  Copyright (c) 2018 . All rights reserved.
-  ~  Last modified 14/12/18 12:14 PM
+  ~  Created by Tri Phan on 7/01/19 8:35 PM
+  ~  Copyright (c) 2019 . All rights reserved.
+  ~  Last modified 7/01/19 8:35 PM
   -->
 
 <FrameLayout
@@ -15,6 +15,6 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        tools:context=".view.impl.MainActivity">
+        tools:context=".view.impl.ReviewActivity">
 
 </FrameLayout>

@@ -1,5 +1,7 @@
 package edu.flinders.crcapp.presenter.impl;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import edu.flinders.crcapp.presenter.MainPresenter;
@@ -26,13 +28,14 @@ public final class MainPresenterImpl extends BasePresenterImpl<MainView> impleme
     public void onStart(boolean viewCreated) {
         super.onStart(viewCreated);
 
+        this.onViewAttached(mView);
         // Your code here. Your view is available using mView and will not be null until next onStop()
     }
 
     @Override
     public void onStop() {
         // Your code here, mView will be null after this method until next onStart()
-
+        this.onViewDetached();
         super.onStop();
     }
 
@@ -44,5 +47,10 @@ public final class MainPresenterImpl extends BasePresenterImpl<MainView> impleme
          */
 
         super.onPresenterDestroyed();
+    }
+
+    @Override
+    public void moveToOtherActivity(Activity activity, Class<?> actName, Bundle bundle) {
+        mInteractor.moveToOtherActivity(activity, actName, bundle);
     }
 }

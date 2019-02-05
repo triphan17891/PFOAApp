@@ -6,12 +6,14 @@
 
 package edu.flinders.crcapp.view;
 
+import android.graphics.Bitmap;
 import android.support.annotation.UiThread;
 import android.view.View;
+import edu.flinders.crcapp.model.ProcessCallback;
 
 @UiThread
 public interface CameraView {
-    void takePicture(View view);
+    void takePicture(View view, ProcessCallback processCallback);
     void createCameraPreview();
     void openCamera();
     void updatePreview();
@@ -19,4 +21,5 @@ public interface CameraView {
     void startBackgroundThread();
     void stopBackgroundThread();
     void setupViewByContext();
+    void performActionButton(View view);
 }

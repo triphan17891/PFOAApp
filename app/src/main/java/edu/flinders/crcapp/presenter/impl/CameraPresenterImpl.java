@@ -6,6 +6,9 @@
 
 package edu.flinders.crcapp.presenter.impl;
 
+import android.graphics.Bitmap;
+import android.media.Image;
+import android.media.ImageReader;
 import android.support.annotation.NonNull;
 
 import edu.flinders.crcapp.presenter.CameraPresenter;
@@ -50,5 +53,25 @@ public final class CameraPresenterImpl extends BasePresenterImpl<CameraView> imp
          */
 
         super.onPresenterDestroyed();
+    }
+
+    @Override
+    public ImageReader.OnImageAvailableListener getImageReaderListener(String dir) {
+        return mInteractor.getImageReaderListener(dir);
+    }
+
+    @Override
+    public Bitmap getBitmapFromCamera() {
+        return mInteractor.getBitmapFromCamera();
+    }
+
+    @Override
+    public Image getImageFromCamera() {
+        return mInteractor.getImageFromCamera();
+    }
+
+    @Override
+    public int[] getColors(int[] location, int[] areaSize) {
+        return mInteractor.getColors(location, areaSize);
     }
 }

@@ -9,11 +9,9 @@ package edu.flinders.crcapp.view.impl;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.graphics.ImageFormat;
-import android.graphics.SurfaceTexture;
+import android.graphics.*;
 import android.hardware.camera2.*;
 import android.hardware.camera2.params.StreamConfigurationMap;
-import android.media.Image;
 import android.media.ImageReader;
 import android.os.*;
 import android.support.annotation.NonNull;
@@ -29,6 +27,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.flinders.crcapp.R;
 import edu.flinders.crcapp.model.GlobalUtils;
+import edu.flinders.crcapp.model.ProcessCallback;
 import edu.flinders.crcapp.model.StringUtils;
 import edu.flinders.crcapp.view.CameraView;
 import edu.flinders.crcapp.presenter.loader.PresenterFactory;
@@ -39,7 +38,6 @@ import edu.flinders.crcapp.injection.DaggerCameraViewComponent;
 
 import javax.inject.Inject;
 import java.io.*;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,7 +45,8 @@ import java.util.List;
 public final class CameraActivity extends BaseActivity<CameraPresenter, CameraView> implements CameraView {
     private static final int REQUEST_CAMERA_PERMISSION = 200;
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
-
+    // the rectangle size in which pixels will be selected
+    private final int[] SELECTED_PIXEL_NUM = {5,5};
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -70,6 +69,12 @@ public final class CameraActivity extends BaseActivity<CameraPresenter, CameraVi
     @BindView(R.id.tv_camera_instruct)
     TextView mTVInstruction;
 
+    @BindView(R.id.img_target)
+    ImageView mImgTarget;
+
+    @BindView(R.id.img_temp)
+    ImageView mImgTemp;
+
     @BindString(R.string.caution_granting_permission)
     String CAUTION_GRANTING_PERMISSION;
     @BindString(R.string.info_success_saving)
@@ -79,8 +84,11 @@ public final class CameraActivity extends BaseActivity<CameraPresenter, CameraVi
     @BindString(R.string.app_name)
     String APP_NAME;
 
+    int x_cord;
+    int y_cord;
+
     private TextureView.SurfaceTextureListener mTextureListener;
-    private View.OnClickListener mOnActionClickListener;
+    private View.OnTouchListener mOnTouchListener;
 
     private File mFile;
 
@@ -95,6 +103,8 @@ public final class CameraActivity extends BaseActivity<CameraPresenter, CameraVi
 
     private HandlerThread mBackgroundThread;
     private Handler mBackgroundHandler;
+
+    private RelativeLayout.LayoutParams mTargetLayoutParams;
 
     private final CameraDevice.StateCallback mStateCallback = new CameraDevice.StateCallback() {
         @Override
@@ -124,10 +134,6 @@ public final class CameraActivity extends BaseActivity<CameraPresenter, CameraVi
         ButterKnife.bind(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        mTxvView = findViewById(R.id.txv_camera);
-        mTxvView.setSurfaceTextureListener(mTextureListener);
-
         setupViewByContext();
     }
 
@@ -182,7 +188,7 @@ public final class CameraActivity extends BaseActivity<CameraPresenter, CameraVi
                 btn.setChecked(true);
             } else {
                 btn.setChecked(false);
-                rprms.setMargins(GlobalUtils.toPixels(10, getResources().getDisplayMetrics()),0,0,0);
+                rprms.setMargins(GlobalUtils.toPixels(10, getResources().getDisplayMetrics()), 0, 0, 0);
             }
             mRbgStep.addView(btn, rprms);
         }
@@ -208,6 +214,12 @@ public final class CameraActivity extends BaseActivity<CameraPresenter, CameraVi
         super.onStart();
 
         registerListeners();
+
+        mTxvView = findViewById(R.id.txv_camera);
+        mTxvView.setSurfaceTextureListener(mTextureListener);
+
+        mTargetLayoutParams = (RelativeLayout.LayoutParams) mImgTarget.getLayoutParams();
+        mImgTarget.setOnTouchListener(mOnTouchListener);
 
     }
 
@@ -290,14 +302,81 @@ public final class CameraActivity extends BaseActivity<CameraPresenter, CameraVi
             public void onSurfaceTextureUpdated(SurfaceTexture surface) {
             }
         };
+
+        mOnTouchListener = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                final int X = (int) event.getRawX();
+                final int Y = (int) event.getRawY();
+                switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                    case MotionEvent.ACTION_DOWN:
+                        RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+                        x_cord = X - lParams.leftMargin;
+                        y_cord = Y - lParams.topMargin;
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        break;
+                    case MotionEvent.ACTION_POINTER_UP:
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view
+                                .getLayoutParams();
+                        layoutParams.leftMargin = X - x_cord;
+                        if(Y - y_cord > GlobalUtils.toPixels(-42, getResources().getDisplayMetrics())) {
+                            layoutParams.topMargin = Y - y_cord;
+                        }
+                        layoutParams.rightMargin = -250;
+                        layoutParams.bottomMargin = -250;
+                        view.setLayoutParams(layoutParams);
+                        break;
+                }
+                ((RelativeLayout)view.getParent()).invalidate();
+                return true;
+            }
+        };
+    }
+
+    @Override
+    @OnClick(R.id.btn_action)
+    public void performActionButton(View v) {
+        takePicture(v, new ProcessCallback() {
+            @Override
+            public void onStart() {
+                //do nothing
+            }
+
+            @Override
+            public void inProcess() {
+                //do nothing
+            }
+
+            @Override
+            public void onSuccess() {
+                // get location of the cursor
+                int[] location = new int[2];
+                mImgTarget.getLocationOnScreen(location);
+                int[] colors = mPresenter.getColors(location, SELECTED_PIXEL_NUM);
+
+                Log.d("colors", "RGB: " + colors[0] + "/" + colors[1] + "/" + colors[2]);
+            }
+
+            @Override
+            public void onFailure() {
+
+            }
+        });
     }
 
     /**
+     *
      * This method is for taking picture from rear camera
+     * @param view the focusing view
+     * @param processCallback for retrieving process status
      */
     @Override
-    @OnClick(R.id.btn_action)
-    public void takePicture(View view) {
+    public void takePicture(View view, final ProcessCallback processCallback) {
         if (mCameraDevice == null) {
             Log.e(TAG, "mCameraDevice is null");
             return;
@@ -325,50 +404,23 @@ public final class CameraActivity extends BaseActivity<CameraPresenter, CameraVi
             // Orientation
             int rotation = this.getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
-            //TODO: the file name should be configured here
-            String fileName = GlobalUtils.namedByTime();
-            final File file = new File(Environment.getExternalStorageDirectory() + "/" + APP_NAME + "/" + fileName);
-            ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
-                @Override
-                public void onImageAvailable(ImageReader reader) {
-                    Image image = null;
-                    try {
-                        image = reader.acquireLatestImage();
-                        ByteBuffer buffer = image.getPlanes()[0].getBuffer();
-                        byte[] bytes = new byte[buffer.capacity()];
-                        buffer.get(bytes);
-                        save(bytes);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                        if (image != null) {
-                            image.close();
-                        }
-                    }
-                }
-
-                private void save(byte[] bytes) throws IOException {
-                    OutputStream output = null;
-                    try {
-                        output = new FileOutputStream(file);
-                        output.write(bytes);
-                    } finally {
-                        if (null != output) {
-                            output.close();
-                        }
-                    }
-                }
-            };
+            final String fileName = GlobalUtils.namedByTime();
+            final String path = Environment.getExternalStorageDirectory() + "/" + APP_NAME + "/";
+            File folder = new File(path);
+            if (!folder.exists()) {
+                folder.mkdirs();
+            }
+            final String dir = path + fileName;
+            ImageReader.OnImageAvailableListener readerListener = mPresenter.getImageReaderListener(dir);
             reader.setOnImageAvailableListener(readerListener, mBackgroundHandler);
 
             final CameraCaptureSession.CaptureCallback captureListener = new CameraCaptureSession.CaptureCallback() {
                 @Override
                 public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
-                    Toast.makeText(CameraActivity.this, String.format(INFO_SUCCESS_SAVING, file), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CameraActivity.this, String.format(INFO_SUCCESS_SAVING, dir), Toast.LENGTH_SHORT).show();
                     createCameraPreview();
+                    processCallback.onSuccess();
                 }
             };
 

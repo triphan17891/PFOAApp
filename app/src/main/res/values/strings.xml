@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CRCApp</string>
+    <string name="app_name">Flinders\' PFAS Sensing</string>
 
     <string name="intro_first_page">Calibration</string>
     <string name="intro_second_page">Record Sample</string>
@@ -51,9 +51,9 @@
     <string name="calib_setting_apply_overrides">Apply Overrides</string>
     <string name="calib_setting_clear_overrides">Clear Overrides</string>
 
-    <string name="main_record_new_sample">RECORD NEW SAMPLE</string>
+    <string name="main_record_new_sample">RECORD SAMPLE</string>
     <string name="main_calibration">CALIBRATION</string>
-    <string name="main_review_prev_sample">REVIEW PREVIOUS SAMPLES</string>
+    <string name="main_review_prev_sample">REVIEW RESULTS</string>
     <string name="main_help">HELP</string>
     <string name="main_contact_us">CONTACT US</string>
 

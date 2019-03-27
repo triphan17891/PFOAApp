@@ -20,7 +20,7 @@
 
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
               android:text="@string/calib_setting_desc"
-              android:textSize="@dimen/font_size_normal"/>
+              android:textSize="@dimen/font_size_heading2"/>
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:gravity="center_vertical"
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:text="@string/calib_setting_apply_overrides"
-                android:enabled="false"
+                android:enabled="true"
                 android:id="@+id/btn_apply_overrides"/>
 
         <Button

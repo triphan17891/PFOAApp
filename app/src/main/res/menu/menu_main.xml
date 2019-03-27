@@ -1,0 +1,17 @@
+<!--
+  ~  Created by Tri Phan on 16/02/19 3:34 PM
+  ~  Copyright (c) 2019 . All rights reserved.
+  ~  Last modified 16/02/19 3:34 PM
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+
+    <item
+            android:id="@+id/menu_help" app:showAsAction="never" android:title="@string/menu_item_help">
+    </item>
+    <item
+            android:id="@+id/menu_contact" app:showAsAction="never" android:title="@string/menu_item_contact">
+    </item>
+</menu>

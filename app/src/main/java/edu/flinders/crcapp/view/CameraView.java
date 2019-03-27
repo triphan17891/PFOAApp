@@ -20,6 +20,6 @@ public interface CameraView {
     void closeCamera();
     void startBackgroundThread();
     void stopBackgroundThread();
-    void setupViewByContext();
+    void setupViewByContext(int viewId);
     void performActionButton(View view);
 }

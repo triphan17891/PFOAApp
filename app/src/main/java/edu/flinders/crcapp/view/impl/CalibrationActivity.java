@@ -33,8 +33,6 @@ public final class CalibrationActivity extends BaseActivity<CalibrationPresenter
     @Inject
     PresenterFactory<CalibrationPresenter> mPresenterFactory;
 
-    @BindView(R.id.btn_zero_point)
-    Button mBtnZeroCalib;
     @BindView(R.id.btn_one_point)
     Button mBtnOneCalib;
     @BindView(R.id.btn_two_point)
@@ -73,7 +71,6 @@ public final class CalibrationActivity extends BaseActivity<CalibrationPresenter
         mBtnOneCalib.setOnClickListener(mOnClickListener);
         mBtnTwoCalib.setOnClickListener(mOnClickListener);
         mBtnThreeCalib.setOnClickListener(mOnClickListener);
-        mBtnZeroCalib.setOnClickListener(mOnClickListener);
         mBtnAdv.setOnClickListener(mOnClickListener);
     }
 

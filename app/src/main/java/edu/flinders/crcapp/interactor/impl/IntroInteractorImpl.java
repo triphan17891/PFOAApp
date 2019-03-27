@@ -16,6 +16,7 @@ import edu.flinders.crcapp.R;
 import edu.flinders.crcapp.interactor.IntroInteractor;
 
 public final class IntroInteractorImpl implements IntroInteractor {
+    public static int INTRO_REQUEST_CODE = 1000;
     @Inject
     public IntroInteractorImpl() {
 
@@ -27,6 +28,6 @@ public final class IntroInteractorImpl implements IntroInteractor {
         if(bundle != null) {
             i.putExtras(bundle);
         }
-        activity.startActivity(i);
+        activity.startActivityForResult(i, INTRO_REQUEST_CODE);
     }
 }

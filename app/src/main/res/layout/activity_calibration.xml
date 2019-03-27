@@ -24,107 +24,6 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/calib_first_sec"
-                android:textSize="@dimen/font_size_heading1"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Three-point"
-                android:textSize="@dimen/font_size_heading2"
-                android:padding="10dp"
-                android:textStyle="bold"
-                android:id="@+id/tv_calib_current"/>
-
-        <LinearLayout
-                android:id="@+id/ll_calib_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="-15dp"
-                android:orientation="vertical">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3/12/2018 11:20:36 PM"
-                    android:textSize="@dimen/font_size_normal"
-                    android:id="@+id/tv_calib_date"/>
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:orientation="horizontal">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/calib_prefix_a1"
-                        android:textSize="@dimen/font_size_normal"
-                />
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0.123"
-                        android:textSize="@dimen/font_size_normal"
-                        android:id="@+id/tv_calib_a1"/>
-            </LinearLayout>
-
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:orientation="horizontal">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/calib_prefix_a2"
-                        android:textSize="@dimen/font_size_normal"
-                />
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0.456"
-                        android:textSize="@dimen/font_size_normal"
-
-                        android:id="@+id/tv_calib_a2"/>
-            </LinearLayout>
-
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:orientation="horizontal">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/calib_prefix_a3"
-                        android:textSize="@dimen/font_size_normal"
-                />
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0.789"
-                        android:textSize="@dimen/font_size_normal"
-
-                        android:id="@+id/tv_calib_a3"/>
-            </LinearLayout>
-
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:orientation="horizontal">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/calib_prefix_a4"
-                        android:textSize="@dimen/font_size_normal"
-                />
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0.321"
-                        android:textSize="@dimen/font_size_normal"
-                        android:id="@+id/tv_calib_a4"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/calib_second_sec"
                 android:textSize="@dimen/font_size_heading1"
                 android:textColor="@color/colorPrimaryDark"
@@ -132,69 +31,42 @@
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:orientation="horizontal">
-            <LinearLayout android:layout_width="wrap_content"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical">
+            <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
-                          android:layout_gravity="center"
+                          android:layout_weight="1"
                           android:padding="10dp">
                 <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/calib_zero_point_title"
-                        android:textSize="@dimen/font_size_heading2"
-                        android:textStyle="bold"
-                />
-                <TextView
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/calib_zero_point_desc"
-                        android:textSize="@dimen/font_size_normal"
-                />
-            </LinearLayout>
-
-            <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:id="@+id/btn_zero_point"/>
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal">
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:orientation="vertical"
-                          android:padding="10dp">
-                <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/calib_one_point_title"
                         android:textSize="@dimen/font_size_heading2"
                         android:textStyle="bold"
                 />
                 <TextView
-                        android:layout_width="300dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/calib_one_point_desc"
+                        android:text="@string/calib_one_sample_desc"
                         android:textSize="@dimen/font_size_normal"
                 />
             </LinearLayout>
 
             <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_weight="1"
                     android:id="@+id/btn_one_point"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:orientation="horizontal">
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
+                          android:layout_weight="1"
                           android:padding="10dp">
                 <TextView
                         android:layout_width="wrap_content"
@@ -203,25 +75,25 @@
                         android:textSize="@dimen/font_size_heading2"
                         android:textStyle="bold"/>
                 <TextView
-                        android:layout_width="300dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/calib_two_point_desc"
+                        android:text="@string/calib_two_sample_desc"
                         android:textSize="@dimen/font_size_normal"/>
             </LinearLayout>
 
             <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_weight="1"
                     android:id="@+id/btn_two_point"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal">
-            <LinearLayout android:layout_width="wrap_content"
+            <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
+                          android:layout_weight="1"
                           android:padding="10dp">
                 <TextView
                         android:layout_width="wrap_content"
@@ -232,23 +104,23 @@
                 <TextView
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/calib_three_point_desc"
+                        android:text="@string/calib_three_sample_desc"
                         android:textSize="@dimen/font_size_normal"/>
             </LinearLayout>
 
             <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_weight="1"
                     android:id="@+id/btn_three_point"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal">
-            <LinearLayout android:layout_width="wrap_content"
+            <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
+                          android:layout_weight="1"
                           android:padding="10dp">
                 <TextView
                         android:layout_width="wrap_content"
@@ -264,9 +136,8 @@
             </LinearLayout>
 
             <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_weight="1"
                     android:id="@+id/btn_advance"/>
         </LinearLayout>
 

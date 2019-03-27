@@ -1,0 +1,14 @@
+<!--
+  ~  Created by Tri Phan on 26/02/19 4:04 PM
+  ~  Copyright (c) 2019 . All rights reserved.
+  ~  Last modified 16/02/19 3:37 PM
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+
+    <item
+            android:id="@+id/menu_info" app:showAsAction="always" android:icon="@drawable/info_96" android:title="">
+    </item>
+</menu>

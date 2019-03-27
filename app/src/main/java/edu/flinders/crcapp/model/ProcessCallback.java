@@ -9,6 +9,6 @@ package edu.flinders.crcapp.model;
 public interface ProcessCallback {
     void onStart();
     void inProcess();
-    void onSuccess();
-    void onFailure();
+    void onSuccess(String s);
+    void onFailure(String f);
 }

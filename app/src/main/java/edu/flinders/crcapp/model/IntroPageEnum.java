@@ -9,11 +9,9 @@ package edu.flinders.crcapp.model;
 import edu.flinders.crcapp.R;
 
 public enum IntroPageEnum {
-    FIRST_PAGE(R.string.intro_first_page, R.layout.view_intro_page),
+    FIRST_PAGE(R.string.intro_first_page, R.layout.view_calib_page),
     SECOND_PAGE(R.string.intro_second_page, R.layout.view_intro_page),
-    THIRD_PAGE(R.string.intro_third_page, R.layout.view_intro_page),
-    FORTH_PAGE(R.string.intro_forth_page, R.layout.view_intro_page),
-    FIFTH_PAGE(R.string.intro_fifth_page, R.layout.view_intro_page);
+    THIRD_PAGE(R.string.intro_third_page, R.layout.view_result_page);
 
     private int mTitleResId;
     private int mLayoutResId;

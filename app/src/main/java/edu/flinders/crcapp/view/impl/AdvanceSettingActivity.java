@@ -6,17 +6,21 @@
 
 package edu.flinders.crcapp.view.impl;
 
+import android.media.audiofx.DynamicsProcessing;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 import edu.flinders.crcapp.R;
+import edu.flinders.crcapp.model.Calibration;
+import edu.flinders.crcapp.model.Equation;
 import edu.flinders.crcapp.view.AdvanceSettingView;
 import edu.flinders.crcapp.presenter.loader.PresenterFactory;
 import edu.flinders.crcapp.presenter.AdvanceSettingPresenter;
@@ -55,6 +59,19 @@ public final class AdvanceSettingActivity extends BaseActivity<AdvanceSettingPre
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.calib_setting_title);
+
+        // Get current calibration
+        Calibration calib = Equation.getSavedObjectFromPreference(this,
+                Equation.SHARED_FILE_KEY,
+                Equation.SHARED_OBJ_KEY,
+                Calibration.class);
+        if(calib != null) {
+            mEdtA1.setText(calib.get_c1() + "");
+            mEdtA2.setText(calib.get_c2() + "");
+            mEdtA3.setText(calib.get_c3() + "");
+            mEdtA4.setText(calib.get_c4() + "");
+        }
+
     }
 
     @Override
@@ -105,14 +122,33 @@ public final class AdvanceSettingActivity extends BaseActivity<AdvanceSettingPre
             mBtnApply.setEnabled(true);
             mBtnClear.setEnabled(true);
         } else {
-            mBtnApply.setEnabled(false);
+            //mBtnApply.setEnabled(false);
             mBtnClear.setEnabled(false);
         }
     }
 
     @Override @OnClick(R.id.btn_apply_overrides)
     public void applyAllOverrides() {
+        Calibration calib = new Calibration();
+        if(!mEdtA1.getText().toString().equals(""))
+            calib.set_c1(Double.parseDouble(mEdtA1.getText().toString()));
+        if(!mEdtA2.getText().toString().equals(""))
+            calib.set_c2(Double.parseDouble(mEdtA2.getText().toString()));
+        if(!mEdtA3.getText().toString().equals(""))
+            calib.set_c3(Double.parseDouble(mEdtA3.getText().toString()));
+        if(!mEdtA4.getText().toString().equals(""))
+            calib.set_c4(Double.parseDouble(mEdtA4.getText().toString()));
 
+        Equation.saveObjectToSharedPreference(this, Equation.SHARED_FILE_KEY, Equation.SHARED_OBJ_KEY, calib);
+
+        // check empty fields for checking if reset default or not
+        String t = mEdtA1.getText().toString() + mEdtA2.getText().toString()
+                + mEdtA3.getText().toString() + mEdtA4.getText().toString();
+        if(t != "") {
+            Toast.makeText(this, R.string.info_config_changed, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, R.string.info_config_changed_as_default, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @NonNull

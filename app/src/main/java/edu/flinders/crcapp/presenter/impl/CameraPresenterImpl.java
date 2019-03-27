@@ -74,4 +74,33 @@ public final class CameraPresenterImpl extends BasePresenterImpl<CameraView> imp
     public int[] getColors(int[] location, int[] areaSize) {
         return mInteractor.getColors(location, areaSize);
     }
+
+    @Override
+    public float getFinalValue(int[] colors) {
+        return mInteractor.getFinalValue(colors);
+    }
+
+    public void setBitmapFromCamera(Bitmap b) {
+        mInteractor.setBitmapFromCamera(b);
+    }
+
+    @Override
+    public void deleteAFile(String dir) {
+        mInteractor.deleteAFile(dir);
+    }
+
+    @Override
+    public void calibOneSample(int[] v0) {
+        mInteractor.calibOneSample(v0);
+    }
+
+    @Override
+    public void calibTwoSample(int[] v1, int[] v2) {
+        mInteractor.calibTwoSample(v1, v2);
+    }
+
+    @Override
+    public void calibThreeSample(int[] v0, int[] v1, int[] v2) {
+        mInteractor.calibThreeSample(v0, v1, v2);
+    }
 }

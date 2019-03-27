@@ -14,6 +14,12 @@ public interface CameraInteractor extends BaseInteractor {
     ImageReader.OnImageAvailableListener getImageReaderListener(String dir);
     Bitmap getBitmapFromCamera();
     Image getImageFromCamera();
+    void setBitmapFromCamera(Bitmap b);
     int[] getColors(int[] location, int[] areaSize);
+    float getFinalValue(int[] colors);
+    void deleteAFile(String dir);
+    void calibOneSample(int[] v0);
+    void calibTwoSample(int[] v1, int[] v2);
+    void calibThreeSample(int[] v0, int[] v1, int[] v2);
 
 }

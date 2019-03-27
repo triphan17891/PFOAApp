@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by Tri Phan on 5/02/19 7:04 PM
+  ~  Copyright (c) 2019 . All rights reserved.
+  ~  Last modified 29/01/19 6:05 PM
+  -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:width="3dp" android:color="@android:color/holo_green_dark"/>
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+</layer-list>

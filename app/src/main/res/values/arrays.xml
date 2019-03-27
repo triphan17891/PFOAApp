@@ -41,5 +41,9 @@
         <item>#8c9f58</item>
     </string-array>
 
-    <array name="colors"></array>
+    <array name="steps">
+        <item>Calibration</item>
+        <item>Analyzing Sample</item>
+        <item>Result</item>
+    </array>
 </resources>

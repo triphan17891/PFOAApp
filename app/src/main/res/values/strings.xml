@@ -1,55 +1,98 @@
 <resources>
     <string name="app_name">Flinders\' PFAS Sensing</string>
 
+    <string name="menu_item_help">Help</string>
+    <string name="menu_item_contact">Contact Us</string>
+
     <string name="intro_first_page">Calibration</string>
-    <string name="intro_second_page">Record Sample</string>
+    <string name="intro_calib_instruction">First step of using the application is calibration. In this step, some
+    referenced samples need to be recorded for making the calibration curve, which helps neutralize the environment
+    inside the kit. After finishing this stage, the kit is ready for analyzing the target sample. This step must be
+       performed before analyzing the target sample. For more information,
+     please click these buttons below.</string>
+    <string name="intro_second_page">Analyze The Sample</string>
+    <string name="intro_analyze_sample">For recording the sample, please click the below button.</string>
     <string name="intro_third_page">Review Results</string>
+    <string name="intro_review_results">For reviewing previous captures, please click the below button</string>
     <string name="intro_forth_page">Help</string>
     <string name="intro_fifth_page">Contact Us</string>
 
-    <string name="record_instruct">Place the sample in the measuring kit and press the "Record" button.</string>
+    <string name="record_instruct">Press the "Analyze" button for measuring the sample.</string>
 
     <string name="calib_first_sec">CURRENT CALIBRATION</string>
-    <string name="calib_second_sec">PERFORM CALIBRATION</string>
-    <string name="calib_zero_point_title">Zero-Point / Move sample region</string>
-    <string name="calib_one_point_title">One-Point</string>
-    <string name="calib_two_point_title">Two-Point</string>
-    <string name="calib_three_point_title">Three-Point</string>
-    <string name="calib_advance_title">Advanced Settings</string>
+    <string name="calib_second_sec">LIST OF CALIBRATION</string>
+    <string name="calib_zero_point_title">Adjust The Cursor</string>
+    <string name="calib_one_point_title">One Sample</string>
+    <string name="calib_one_point_desc">This is one point calibration, which requires a 0ppb sample.</string>
+    <string name="calib_two_point_title">Two Samples</string>
+    <string name="calib_two_point_desc">This is two point calibration, which requires 0ppb and 50ppb samples.</string>
+    <string name="calib_three_point_title">Three Samples</string>
+    <string name="calib_three_point_desc">This is three point calibration, which requires 0ppb, 50ppb and 500ppb samples.</string>
+    <string name="calib_advance_title">Manual Calibration</string>
+    <string name="calib_advance_desc">This function allows users override manually calibration values. Highly recommended for quick adjust
+     and test; in real using, those above methods of calibration are more accurate.</string>
+
+    <string name="calib_info_no_perform">NO CALIBRATION HAS BEEN PERFORMED. (THE DEFAULT WILL BE USED FOR MEASURING)</string>
 
     <string name="calib_empty_calibration">No calibration has been performed.</string>
-    <string name="calib_prefix_a1">A1:\u0020</string>
-    <string name="calib_prefix_a2">A2:\u0020</string>
-    <string name="calib_prefix_a3">A3:\u0020</string>
-    <string name="calib_prefix_a4">A4:\u0020</string>
+    <string name="calib_prefix_a1">C1:\u0020</string>
+    <string name="calib_prefix_a2">C2:\u0020</string>
+    <string name="calib_prefix_a3">C3:\u0020</string>
+    <string name="calib_prefix_a4">C4:\u0020</string>
+    <string name="calib_having_calibration">THE CURRENT CALIBRATION VALUES ARES:\u0020</string>
 
-    <string name="calib_zero_point_desc">Configures sample region bounds. Also sets defaults for the calibration curve if no calibration has been performed.</string>
-    <string name="calib_zero_point_instruct">Place a sample in the measuring kit and align the sample region (red box) with the sample layer, then press "Finish".</string>
+    <string name="calib_move_sample_desc">Moving the cursor to ideal area. Defaults values will be applied for
+        the calibration curve if no calibration has been performed.
+    </string>
+    <string name="calib_move_sample_instruct">After clicking "Done", the position of cursor will be fixed for others
+        measurements.
+    </string>
 
-    <string name="calib_one_point_desc">Performs a one-point calibration. Requires a 0ppb reference sample.</string>
-    <string name="calib_one_point_instruct_1">Step 1: Place a sample in the measuring kit and align the sample region (red box) with the sample layer, then press "Next".</string>
-    <string name="calib_one_point_instruct_2">Step 2: Place a 0 ppb sample in the measuring kit and press "Record".</string>
+    <string name="dialog_instruction">Instruction</string>
+    <string name="dialog_confirmation">Confirmation</string>
+    <string name="dialog_issue">Something gone wrong!</string>
+    <string name="dialog_btn_restart">Restart</string>
+    <string name="dialog_sample_value_success_confirm"><![CDATA[The PPB value for the sample as following. Do you want to save the result? <br><b><font color=#00ff00>%1$s</font></b>]]></string>
 
-    <string name="calib_two_point_desc">Performs a two-point calibration. Requires a 50ppb and 500ppb reference samples.</string>
-    <string name="calib_two_point_instruct_1">Step 1: Place a sample in the measuring kit and align the sample region (red box) with the sample layer, then press "Next".</string>
-    <string name="calib_two_point_instruct_2">Step 2: Place a 50 ppb sample in the measuring kit and press "Record".</string>
-    <string name="calib_two_point_instruct_3">Step 3: Place a 500 ppb sample in the measuring kit and press "Record".</string>
+    <string name="calib_one_sample_desc">Requires a 0ppb as reference sample.</string>
+    <string name="calib_one_sample_instruct_1">Step 1: Adjust the cursor to ideal area.
+    </string>
+    <string name="calib_one_sample_instruct_2">Step 2: Click "Analyze" for analyzing the 0ppb sample.
+    </string>
 
-    <string name="calib_three_point_desc">Performs a three-point calibration. Requires a 0ppb, 50ppb and 500ppb reference samples.</string>
-    <string name="calib_three_point_instruct_1">Step 1: Place a sample in the measuring kit and align the sample region (red box) with the sample layer, then press "Next".</string>
-    <string name="calib_three_point_instruct_2">Step 2: Place a 0 ppb sample in the measuring kit and press "Record".</string>
-    <string name="calib_three_point_instruct_3">Step 2: Place a 50 ppb sample in the measuring kit and press "Record".</string>
-    <string name="calib_three_point_instruct_4">Step 4: Place a 500 ppb sample in the measuring kit and press "Record".</string>
+    <string name="calib_two_sample_desc">Requires 50ppb and 500ppb as reference
+        samples.
+    </string>
+    <string name="calib_two_sample_instruct_1">Step 1: Adjust the cursor to ideal area.
+    </string>
+    <string name="calib_two_sample_instruct_2">Step 2: Click "Analyze" for analyzing the 50ppb sample.
+    </string>
+    <string name="calib_two_sample_instruct_3">Step 3: Click "Analyze" for analyzing the 500ppb sample.
+    </string>
 
-    <string name="calib_setting_title">Calibration settings</string>
-    <string name="calib_advance_desc">Allows you to configure the default calibration</string>
-    <string name="calib_setting_desc">The fields below allow you to override the \'defaults\' used for the calibration curve when a zero, one, or two-point calibration is performed.\n\nUnder normal circumstances they should not need to be overridden, and doing so may lead to calibration issues and/or incorrect sample values.</string>
-    <string name="calib_setting_a1_hint">not overridden (258.7)</string>
-    <string name="calib_setting_a2_hint">not overridden (0.7171)</string>
-    <string name="calib_setting_a3_hint">not overridden (0.3532)</string>
-    <string name="calib_setting_a4_hint">not overridden (0.8868)</string>
-    <string name="calib_setting_apply_overrides">Apply Overrides</string>
-    <string name="calib_setting_clear_overrides">Clear Overrides</string>
+    <string name="calib_three_sample_desc">Requires 0ppb, 50ppb and 500ppb
+        as reference samples.
+    </string>
+    <string name="calib_three_sample_instruct_1">Step 1: Adjust the cursor to ideal area.
+    </string>
+    <string name="calib_three_sample_instruct_2">Step 2: Click "Analyze" for analyzing the 0ppb sample.
+    </string>
+    <string name="calib_three_sample_instruct_3">Step 3: Click "Analyze" for analyzing the 50ppb sample.
+    </string>
+    <string name="calib_three_sample_instruct_4">Step 4: Click "Analyze" for analyzing the 500ppb sample.
+    </string>
+
+    <string name="calib_setting_title">Manual Calibration</string>
+    <string name="calib_setting_desc">By changing the calibration values, you can apply by yourself each value in textboxes
+        below. The gray numbers in textboxes are defaults. Click apply when finish editing (the default values will be set
+        in each blank text field). Clear button is simply removing all current editing.
+    </string>
+    <string name="calib_setting_a1_hint">(258.7)</string>
+    <string name="calib_setting_a2_hint">(0.7171)</string>
+    <string name="calib_setting_a3_hint">(0.3532)</string>
+    <string name="calib_setting_a4_hint">(0.8868)</string>
+    <string name="calib_setting_apply_overrides">Apply</string>
+    <string name="calib_setting_clear_overrides">Clear</string>
 
     <string name="main_record_new_sample">RECORD SAMPLE</string>
     <string name="main_calibration">CALIBRATION</string>
@@ -57,15 +100,17 @@
     <string name="main_help">HELP</string>
     <string name="main_contact_us">CONTACT US</string>
 
-    <string name="help_introduction">Introduction</string>
-    <string name="help_sample_pre">Sample Preparation</string>
-    <string name="help_further_info">For additional information, review the User Guide and Q&#38;A provided with the testing kit (also available on the astkCARE website).</string>
-
     <string name="caution_granting_permission">Sorry, you can\'t use this app without granting permission.</string>
     <string name="info_success_saving">Saved: %1$s</string>
-    <string name="info_config_changed">Configuration changed.</string>
+    <string name="info_config_changed">Configuration is changed.</string>
+    <string name="info_config_changed_as_default">Configuration is changed as defaults.</string>
 
-    <string name="txt_record">Record</string>
+    <string name="result_no_item">No result has been done.</string>
+
+    <string name="txt_record">Analyze</string>
     <string name="txt_next">Next</string>
-    <string name="txt_finish">Finish</string>
+    <string name="txt_finish">Done</string>
+    <string name="txt_analyze_0ppb">Analyze (0ppb sample)</string>
+    <string name="txt_analyze_50ppb">Analyze (50ppb sample)</string>
+    <string name="txt_analyze_500ppb">Analyze (500ppb sample)</string>
 </resources>
